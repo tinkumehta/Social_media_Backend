@@ -1,0 +1,16 @@
+{
+  "name": "social_media_backend",
+  "version": "1.0.0",
+  "description": "\"a backend project for advanced level\"",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "javaScript",
+    "node",
+    "backend"
+  ],
+  "author": "Tinku kumar",
+  "license": "ISC"
+}
