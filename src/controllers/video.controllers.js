@@ -12,7 +12,7 @@ import { uploadOnCloudinary , deleteOnCloudinary} from "../utils/cloudinary.js"
 
  const getAllVideos = asyncHandler (async (req , res) => {
     const {page =1, limit = 10, query, sortBy, sortType, userId} = req.query
-    console.log(userId);
+  //  console.log(userId);
     const pipeline = [];
     
     if (query) {
@@ -92,6 +92,7 @@ import { uploadOnCloudinary , deleteOnCloudinary} from "../utils/cloudinary.js"
     )
 
  })
+
  const publishAVideo = asyncHandler (async (req, res) => {
     const {title, description} = req.body;
 
@@ -147,6 +148,7 @@ import { uploadOnCloudinary , deleteOnCloudinary} from "../utils/cloudinary.js"
         new ApiResponse(200, video, "Video uploaded successfully")
     )
  })
+ 
  const getVideoById = asyncHandler(async (req, res) => {
     const {videoId} = req.params;
 
@@ -266,6 +268,7 @@ import { uploadOnCloudinary , deleteOnCloudinary} from "../utils/cloudinary.js"
         new ApiResponse(200, video[0], "video details fetched successfully")
     )
  });
+
  const updateVideo = asyncHandler (async (req, res) => {
     const {title, description} = req.body;
     const {videoId} = req.params;
