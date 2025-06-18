@@ -270,31 +270,35 @@ const updateAccountDetails = asyncHandler (async (req, res) => {
 })
 
 const updateUserAvatar = asyncHandler(async (req, res) => {
-    const avatarLocalPath = req.file?.path
+     const avatarLocalPath = req.file?.path
 
     if (!avatarLocalPath) {
         throw new ApiError(400, "Avatar file is missing")
     }
 
+    // TODO : delete old image - assignment
     const avatar = await uploadOnCloudinary(avatarLocalPath)
 
     if (!avatar.url) {
-        throw new ApiError(400, "Error while uploading on avata")
+        throw new ApiError(401, "Error while uploading on avatar")
     }
 
-     const user = await User.findByIdAndUpdate(
+    const user = await User.findByIdAndUpdate(
         req.user?._id,
         {
             $set : {
                 avatar : avatar.url
             }
-        }, {new : true}
+        },
+        {
+            new : true
+        }
     ).select("-password")
 
     return res
     .status(200)
     .json(
-        new ApiResponse(200, user , "User avatar update is successfuly")
+        new ApiResponse(200, user, "Avatar image updated successfully")
     )
 })
 
@@ -302,23 +306,33 @@ const updateUserCoverImage = asyncHandler( async (req, res) => {
     const coverImageLocalPath = req.file?.path
 
     if (!coverImageLocalPath) {
-        throw new ApiError(400, "cover image is missing")
+        new ApiError(400, "Cover image file is missing")
     }
 
-    const user = User.findByIdAndUpdate(
+    // TODO : delete old image - assignment
+
+    const coverImage = await uploadOnCloudinary(coverImageLocalPath)
+
+    if (!coverImage.url) {
+        throw new ApiError(400, "Error while uploading on avatar")
+    }
+
+    const user = await User.findByIdAndUpdate(
         req.user?._id,
         {
             $set : {
                 coverImage : coverImage.url
             }
         },
-        { new : true}
+        {
+            new : true
+        }
     ).select("-password")
 
-    return res 
+    return res
     .status(200)
     .json(
-        new ApiResponse(200, user, "update cover image successfuly")
+        new ApiResponse(200, user, "Cover image update successfully")
     )
 })
 
@@ -337,7 +351,7 @@ const updateUserCoverImage = asyncHandler( async (req, res) => {
         },
         {
             $lookup : {
-                from : "subsciptions", // add from subscription model name as propular
+                from : "subsciptions", 
                 localField: "_id",
                 foreignField : "channel",
                 as : "subscribers"
@@ -387,8 +401,7 @@ const updateUserCoverImage = asyncHandler( async (req, res) => {
         throw new ApiError(404, "channel does not exists")
     }
 
-    return 
-    res
+    return res
     .status(200)
     .json( 
         new ApiResponse(200, channel[0], "User channel fetched successfully")
