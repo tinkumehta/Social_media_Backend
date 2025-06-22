@@ -290,7 +290,7 @@ import { uploadOnCloudinary , deleteOnCloudinary} from "../utils/cloudinary.js"
     }
 
     const thumbnailToDelete = video.thumbnail.public_id;
-    const thumbnailLocalPath = req.files?.path;
+    const thumbnailLocalPath = req.file?.path;
 
     if (!thumbnailLocalPath) {
         throw new ApiError(400, "thumbnail is required");

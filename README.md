@@ -79,7 +79,7 @@ A robust backend API for a social media platform, built with scalability and sec
 
 4. **Run the server**
      ```bash
-     npm start
+     npm run dev
      ```
 
 ## Contributing

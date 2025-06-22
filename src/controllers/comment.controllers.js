@@ -122,7 +122,7 @@ const addComment = asyncHandler (async (req, res) => {
     return res
     .status(201)
     .json(
-        new ApiError(201, comment, "Comment added successfully")
+        new ApiResponse(201, comment, "Comment add successfully")
     )
 })
 
