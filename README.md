@@ -47,19 +47,16 @@ A robust backend API for a social media platform, built with scalability and sec
 ## API Endpoints
 
 | Method | Endpoint                | Description                  |
-|--------|------------------------|------------------------------|
-| POST   | `/api/auth/register`   | Register new user            |
-| POST   | `/api/auth/login`      | Login user                   |
-| GET    | `/api/users/:id`       | Get user profile             |
-| PUT    | `/api/users/:id`       | Update user profile          |
-| POST   | `/api/posts`           | Create new post              |
-| GET    | `/api/posts/feed`      | Get timeline feed            |
-| POST   | `/api/posts/:id/like`  | Like a post                  |
-| POST   | `/api/posts/:id/comment` | Comment on a post          |
-| POST   | `/api/users/:id/follow` | Follow a user               |
-| POST   | `/api/users/:id/unfollow` | Unfollow a user           |
-| GET    | `/api/notifications`   | Get notifications            |
-| GET    | `/api/search`          | Search users/posts           |
+|--------|-------------------------|------------------------------|
+| POST   | `/api/v1/users/register`| Register new user            |
+| POST   | `/api/v1/users/login`   | Login user                   |
+| GET    | `/api/v1/users/:id`     | Get user profile             |
+| PUT    | `/api/v1/users/:id`     | Update user profile          |
+| POST   | `/api/v1/posts`         | Create new post              |
+| GET    | `/api/v1/posts/feed`    | Get timeline feed            |
+| POST   | `/api/v1/posts/:id/like`| Like a post                  |
+| POST   | `/api/v1/posts/:id/comment`| Comment on a post          |
+
 
 ## Getting Started
 
