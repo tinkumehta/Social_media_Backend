@@ -1,1 +1,1 @@
-export const DB_NAME = "SocalMedaiGighub"
+export const DB_NAME = "TestBackend"
