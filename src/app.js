@@ -28,7 +28,7 @@ import subsciptionRouter from "./routes/subscription.routes.js"
 import likeRouter from "./routes/like.routes.js"
 
 // routes declaration
-app.get("/", (req, res) => res.send("Hello World"));
+app.get("/", (req, res) => res.send("Tinku kumar"));
 app.use("/api/v1/users", userRouter)
 app.use("/api/v1/health", healthCheckRouter)
 app.use("/api/v1/tweets", tweetRouter)
